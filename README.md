@@ -1,5 +1,14 @@
 # control
 Projeto controle financeiro PHP
+
+$ sudo apt-get update 
+$ sudo apt-get install git
+
+$ git config --global user.name "João Silva" 
+$ git config --global user.email "exemplo@seuemail.com.br"
+
+Para transformar qualquer diretório em um repositório GIT, o simples comando git init <directory>
+
 # Get the code
 $ git clone https://github.com/control.git
 $ cd control
