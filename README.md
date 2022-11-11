@@ -1,8 +1,8 @@
 # control
 Projeto controle financeiro PHP
 # Get the code
-$ git clone https://github.com/cubitus.git
-$ cd cubitus-dashboard-django
+$ git clone https://github.com/control.git
+$ cd control
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
@@ -12,7 +12,7 @@ $ # Virtualenv modules installation (Windows based systems)
 $ # virtualenv env
 $ # .\env\Scripts\activate
 $
-$ # Install modules - SQLite Storage
+$ # Install modules - MySQL Storage
 $ pip3 install -r requirements.txt
 $
 $ # Create tables
