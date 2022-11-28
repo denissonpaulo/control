@@ -41,8 +41,7 @@
             				$string_sql = "SELECT * from $tabela;"; // String com consulta SQL por tabela
 					$i--;
 				}
-	
-			echo $string_sql;
+	    
 			echo "<h1 align='center'>Resultado da Consulta!</h1>";				
 			$consulta = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
 			
