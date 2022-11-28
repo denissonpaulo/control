@@ -30,23 +30,23 @@
      
 			//Abaixo validamos a consulta ao banco de acordo com as informações provenientes do formulário pelo método POST
 	    	if ($data_ini != null){		
-            		$string_sql = "SELECT * from gastos where data between '$data_ini' and '$data_fim'"; //Consulta SQL por data
+            		$string_sql = "SELECT * from gastos where data between '$data_ini' and '$data_fim';"; //Consulta SQL por data
 			$i--;
      	    	}
 	    		else if ($descricao != null){	//validando se existe algum conteudo na opção de busca do formulário
-            			$string_sql = "SELECT * from gastos where descricao='$descricao'"; // String com consulta SQL da descrição
+            			$string_sql = "SELECT * from gastos where descricao='$descricao';"; // String com consulta SQL da descrição
 				$i--;
 	
 	    			}else {	//validando se existe algum conteudo na opção de busca do formulário
-            				$string_sql = "SELECT * from $tabela"; // String com consulta SQL por tabela
+            				$string_sql = "SELECT * from $tabela;"; // String com consulta SQL por tabela
 					$i--;
 				}
 	
-					
+			echo $string_sql;
+			echo "<h1 align='center'>Resultado da Consulta!</h1>";				
 			$consulta = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
 			
-			echo "<h1 align='center'>Resultado da Consulta!</h1>";
-     	
+
 			if(mysqli_num_rows($consulta) > 0){ //verifica se existe conteudo na tabela e faz a impressão
                	
 				while($row = mysqli_fetch_assoc($consulta)) {

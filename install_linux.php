@@ -46,24 +46,33 @@
             	USE $bd;
             	CREATE TABLE IF NOT EXISTS usuario (
             	cod_user int not null auto_increment primary key,
-            	login varchar(20), 
-            	password varchar(20));");
-        	
-        	$syntax_sql=null;
-        	$syntax_sql = $conn-> exec (
-            	"CREATE TABLE IF NOT EXISTS gastos ( cod_gasto int not null auto_increment primary key,
-            	data varchar(20), valor float, descricao varchar(50));
-            	insert into usuario (login "," senha) values ($login "," $senha);"
+            	$atributo1 varchar(20), 
+            	$atributo2 varchar(20));
+				CREATE TABLE IF NOT EXISTS gastos ( 
+				cod_gasto int not null auto_increment primary key,
+            	data varchar(20), 
+				valor float, 
+				descricao varchar(50));"
             	);
 	
             	// Verificamos se a base de dados foi criada com sucesso
             	if ( $syntax_sql >0 ) {
-                	echo 'Comandos MySQL executados com sucesso!';
+                	echo 'Base de dados, tabelas usuario e gastos criadas com sucesso!';
             	} else {
-                	echo 'Falha! ou Base de Dados/Tabela Já Existe!';
+                	echo 'Base de Dados e Tabelas Já Existem!<br/>';
             	}
 	
-        	echo "Usuario DENISSON e Banco de dados CONTROL criado com sucesso!";
+        	$syntax_sql=null;
+        	$syntax_sql = $conn-> exec (
+            	"INSERT INTO usuario ($atributo1, $atributo2) values ('denisson', '123456');"
+            	);
+	
+            	// Verificamos se a base de dados foi criada com sucesso
+            	if ( $syntax_sql >0 ) {
+                	echo 'Usuário para primeiro acesso criado com sucesso!';
+            	} else {
+                	echo 'Usuário para primeiro acesso já existe!';
+            	}
 	
         	}
     	catch (PDOException $e) {

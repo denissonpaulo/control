@@ -25,8 +25,8 @@
             //Abaixo validamos a consulta ao banco de acordo com as informações provenientes do formulário pelo método POST
 	        if ($login != null){
 
-               	$string_sql = "SELECT * from usuario where login='$login' and senha='$senha'"; //Validando usuário e senha
-                $consulta = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
+               	$string_sql = "SELECT * from usuario where login='$login' and password='$senha'"; //Validando usuário e senha
+                $consulta = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta do login e senha
                 
                  if(mysqli_num_rows($consulta) > 0){ //verifica se existe conteudo na tabela e faz a impressão
                         echo '<h1>Login realizado com sucesso!<br/><br/></h1>'; //Menssagem para o usuário

@@ -52,7 +52,8 @@
 				cod_gasto int not null auto_increment primary key,
             	data varchar(20), 
 				valor float, 
-				descricao varchar(50));");
+				descricao varchar(50));"
+				);
 				
 				// Verificamos se a base de dados e tabelas foram criadas com sucesso
             	if ( $syntax_sql >0 ) {
