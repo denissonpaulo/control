@@ -72,7 +72,8 @@
 	
      
             //fecha conexão com o banco de dados
-            encerrarbd(acessarbd()); 
+            encerrarbd(); 
+
         ?>
 
 
