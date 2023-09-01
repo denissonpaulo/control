@@ -6,55 +6,11 @@
     </head>
     <body>
         <h3>Formulário de alteração de despesas</h3>
-<fieldset>        
-	<div>
-	    <form action="alt_gastos.php" method="post">
-            DATA: <input type="date" name="data" maxlength="10" size="27.5" placeholder="Ex.: DD/MM/AAAA" date-mask="DD/MM/AAAA" />
-            <br />
-	</div>
-	<div>
-            DESCRIÇÃO: <input type="text" name="descricao" maxlength="30" size="20.5" />
-            <br />
-	</div>
-	<div>
-	    NOME DA TABELA: <input type="text" name="tabela" maxlength="20" size="13" />
-	    <br />
-	</div>
-</fieldset>
-
-<fieldset>
-            <input type="submit" value="Consultar" />
-	    <input type="reset" value="Apagar" />
-		
+        <form method="post" action="alt_gastos.php" name="frmAltGasto">
+            <p>Digite o número do Código da despesa:&nbsp <input maxlength="14" size="20" name="fldID"</p>
+            <p><input name="btnConfirmar" value="Confirmar" type="submit"> &nbsp
+            <input name="btnCancelar" value="Cancelar" type="reset"></p>
         </form>
-	<form action="principal.html" method="get">
-		<input type="submit" value="Retornar" />
-        </form>
-</fieldset>
-
-
-
-<fieldset>
-    <legend>Choose trip dates</legend>
-
-    <div>
-        <label for="start">Start</label>
-        <input type="date" id="start" name="trip"
-               value="2018-07-22"
-               min="2018-01-01" max="2018-12-31" />
-    </div>
-
-    <div>
-        <label for="end">End</label>
-        <input type="date" id="end" name="trip"
-               value="2018-07-29"
-               min="2018-01-01" max="2018-12-31"/ >
-    </div>
-
-</fieldset>
-
-
-
 
     </body>
 </html>

@@ -11,67 +11,62 @@
             
 			//Importando obejto conexão
 			include_once('conectbd.php');
+
+			$id = $_POST["fldID"];
             
             //verifica se existe conexão com o banco de dados através da função acessarbd
-            acessarbd();            
+            acessarbd();
 
-			//Declaramos váriaveis que serão usadas durante a executação do código	
-	    	$i=1; //Variavel que será utilizada como controle na função if.. else
-	    	$total = 0.0; //Variavel que será utilizada para somar valores inseridos na tabela
+            //variável que armazena a conexão com o banco de dados
+			$bd_conected = true;
 
-
- 			//Abaixo atribuímos os valores provenientes do formulário pelo método POST
-            $codigo = $_POST["codigo"];
-            $data = $_POST["data"]; 
-            $descricao = $_POST["descricao"];
-	    	$tabela = $_POST["tabela"];
-	    
-     
-			//Abaixo validamos a consulta ao banco de acordo com as informações provenientes do formulário pelo método POST
-	    	if ($data != null){		
-            		$string_sql = "SELECT * from gastos where data='$data'"; // String com consulta SQL da data
-			$i--;
-     	    	}
-	    		else if ($descricao != null){	//validando se existe algum conteudo na opção de busca do formulário
-            			$string_sql = "SELECT * from gastos where descricao='$descricao'"; // String com consulta SQL da descrição
-				$i--;
-	
-	    			}else {	//validando se existe algum conteudo na opção de busca do formulário
-            				$string_sql = "SELECT * from $tabela"; // String com consulta SQL da descrição
-					$i--;
-				}
-	
-					
-	
-			$consulta = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
-     	
-			if(mysqli_num_rows($consulta) > 0){ //verifica se existe conteudo na tabela e faz a impressão
+			if ($bd_conected) {
+				$string_sql = "SELECT * from gastos where cod_gasto = '$id';";
+				$consulta = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
+				
+				if(mysqli_num_rows($consulta) != 0){ //verifica se existe conteudo na tabela e faz a impressão
                	
-				while($row = mysqli_fetch_assoc($consulta)) {
-					echo "Código:" . $row["cod_gastos"]. "</a> "; //imprime o campo que você escolheu da tabela existente no mysql
-               		echo "Data: " . $row["data"]. " "; //imprime o campo que você escolheu da tabela existente no mysql
-					echo "Valor: " . $row["valor"]. " "; //imprime o campo que você escolheu da tabela existente no mysql
-					echo "Descrição: " . $row["descricao"]. "<br/>"; //imprime o campo que você escolheu da tabela existente no mysql
-							
-					$total += $row["valor"]; // soma os campos escolhidos da tabela
-            			}
-	
-				echo "<h1 align='center'>Consutla realizada com sucesso</h1>";
-	
-				echo "<p>Total das Despesas $total</p><br/>"; //imprime a soma dos campos escolhidos da tabela.
-	
-				echo '<a href="alt_gastos.html">Consultar nova despesa</a><br/>'; //Apenas um link para retornar para a consulta
-				echo '<a href="index.html">Voltar para pagina principal da empresa</a>'; //Apenas um link para retornar para o site da empresa
-	
-            		} else {
-                		echo "<h1 align='center'>Não existem dados a serem exibidos </h1><br/>";
-						echo '<a href="alt_gastos.html">Tentar consultar novamente a despesa</a><br/>'; //Apenas um link para retornar para a consulta
-						echo '<a href="index.html">Tela principal</a>'; //Apenas um link para retornar para o site da empresa
-			
-            		}
+					$row = mysqli_fetch_array($consulta);
+					$cod_gasto = $row["cod_gasto"];
+					$data = $row["data"];
+					$valor = $row["valor"];
+					$descricao = $row["descricao"];		
+					
+					echo "<DOCTYPE html";
+					echo "<html>";
+					echo "<head>";
+					echo "<title>Editar Gastos</title>";
+					echo "</head>";
+					echo "<body>";
 
-            //fecha conexão com o banco de dados
-            encerrarbd(acessarbd());
+						echo '<form method="post" action="editar_gasto.php">';
+						echo '<p>Código: <input type="hidden" name="fldID" value="'.$cod_gasto.'"></p>';
+						echo '<p>Data: <input type="text" name="fldData" value="'.$data.'"></p>';
+						echo '<p>Valor: <input type="text" name="fldValor" value="'.$valor.'"></p>';
+						echo '<p>Descrição: <input type="text" name="fldDescricao" value"'.$descricao.'"></p>';
+
+
+						echo '<a href="cons_gastos.html">Consultar outra despesa</a><br/>'; //Apenas um link para retornar para a consulta
+						echo '<a href="principal.html">Tela Principal</a>'; //Apenas um link para retornar para o site da empresa
+
+
+					echo "</body>";
+					echo "</html>";
+			
+				} else {
+							echo "<h1 align='center'>Não existem dados a serem exibidos </h1><br/>";
+							echo '<a href="cons_gastos.html">Tentar consultar novamente a despesa</a><br/>'; //Apenas um link para retornar para a consulta
+							echo '<a href="principal.html">Tela Principal</a>'; //Apenas um link para retornar para o site da empresa
+
+							mysqli_free_result($consulta);
+						}
+			
+		
+		 
+				//fecha conexão com o banco de dados
+				mysqli_close(acessarbd()); 
+
+			}
         ?>
 
 
