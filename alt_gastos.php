@@ -43,7 +43,7 @@
 						echo '<p>Código: <input type="hidden" name="fldID" value="'.$cod_gasto.'"></p>';
 						echo '<p>Data: <input type="text" name="fldData" value="'.$data.'"></p>';
 						echo '<p>Valor: <input type="text" name="fldValor" value="'.$valor.'"></p>';
-						echo '<p>Descrição: <input type="text" name="fldDescricao" value"'.$descricao.'"></p>';
+						echo '<p>Descrição: <input type="text" name="fldDescricao" value="'.$descricao.'"></p>';
 
 
 						echo '<a href="cons_gastos.html">Consultar outra despesa</a><br/>'; //Apenas um link para retornar para a consulta
