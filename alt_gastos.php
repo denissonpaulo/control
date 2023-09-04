@@ -67,6 +67,46 @@
 				mysqli_close(acessarbd()); 
 
 			}
+
+			if ($bd_conected) {
+				$string_sql = "update gastos SET data='$data', valor='$valor', descricao='$descricao' where id='$id'";
+				$save = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
+
+				if ($save != 0) {
+					echo "<div align='center'>";
+					echo "<table width=759 border=0>";
+					echo "<tr>";
+					echo "<td bgcolor='#FF9900'>";
+					echo "div align='center'>";
+					echo "<font face=Verdana size=3><b>Confirmação de Atualização de Cadastro</b></font>";
+					echo "</div>";
+					echo "</td>";
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td>&nbsp;</td>";
+					echo "</tr>";
+					echo "<tr>";
+					echo "<td>";
+					echo "<div align=çenter'>";
+					echo "<font face=Arial size=3><b>Dados do cliente atualizados com sucesso !</b></font>";
+					echo "</div>";
+					echo "</td>";
+					echo "</tr>";
+					echo "</table>";
+					echo "</div>";
+					echo "<p>&nbsp;</p>";
+					echo "<br/><br/>";
+					echo "Data: $data <br/>";
+					echo "Valor: $valor <br/>";
+					echo "Descrição: $descricao <br/>";
+				}
+				else {
+					echo "<h2><center>Erro na atualização do cadastro do cliente !</center></h2>";
+					 	echo "<br/><br/>";
+					echo mysqli_error();
+				}	
+
+			}
         ?>
 
 
