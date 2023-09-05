@@ -48,7 +48,7 @@
 							echo '<input name="btnCancelar" value="Cancelar" type="reset"/>';
 						echo '</form>';
 
-						echo '<a href="cons_gastos.html">Consultar outra despesa</a><br/>'; //Apenas um link para retornar para a consulta
+						echo '<a href="alt_gastos.html">Alterar outra despesa</a><br/>'; //Apenas um link para retornar para a consulta
 						echo '<a href="principal.html">Tela Principal</a>'; //Apenas um link para retornar para o site da empresa
 
 
@@ -57,7 +57,7 @@
 			
 				} else {
 							echo "<h1 align='center'>Não existem dados a serem exibidos </h1><br/>";
-							echo '<a href="cons_gastos.html">Tentar consultar novamente a despesa</a><br/>'; //Apenas um link para retornar para a consulta
+							echo '<a href="alt_gastos.html">Tentar novamente</a><br/>'; //Apenas um link para retornar para a consulta
 							echo '<a href="principal.html">Tela Principal</a>'; //Apenas um link para retornar para o site da empresa
 
 							mysqli_free_result($consulta);

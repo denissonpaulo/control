@@ -5,6 +5,7 @@
 			//Importando obejto conexão
 			include_once('conectbd.php');
 
+			$id = $_POST["id"];
             $data = $_POST["fldData"];
             $valor = $_POST["fldValor"];
             $descricao = $_POST["fldDescricao"];
