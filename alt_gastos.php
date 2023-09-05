@@ -40,11 +40,13 @@
 					echo "<body>";
 
 						echo '<form method="post" action="updt_gastos.php">';
-						echo '<p>Código: <input type="hidden" name="fldID" value="'.$cod_gasto.'"></p>';
-						echo '<p>Data: <input type="text" name="fldData" value="'.$data.'"></p>';
-						echo '<p>Valor: <input type="text" name="fldValor" value="'.$valor.'"></p>';
-						echo '<p>Descrição: <input type="text" name="fldDescricao" value="'.$descricao.'"></p>';
-
+							echo '<p>Código: <input type="hidden" name="fldID" value="'.$cod_gasto.'"/></p>';
+							echo '<p>Data: <input type="text" name="fldData" value="'.$data.'"/></p>';
+							echo '<p>Valor: <input type="text" name="fldValor" value="'.$valor.'"/></p>';
+							echo '<p>Descrição: <input type="text" name="fldDescricao" value="'.$descricao.'"/></p>';
+							echo '<input name="btnEnviar" value="Enviar" type="submit"/>&nbsp;&nbsp;';
+							echo '<input name="btnCancelar" value="Cancelar" type="reset"/>';
+						echo '</form>';
 
 						echo '<a href="cons_gastos.html">Consultar outra despesa</a><br/>'; //Apenas um link para retornar para a consulta
 						echo '<a href="principal.html">Tela Principal</a>'; //Apenas um link para retornar para o site da empresa
