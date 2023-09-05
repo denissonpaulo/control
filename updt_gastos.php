@@ -5,7 +5,7 @@
 			//Importando obejto conexão
 			include_once('conectbd.php');
 
-			$id = $_POST["id"];
+			$id = $_POST["fldID"];
             $data = $_POST["fldData"];
             $valor = $_POST["fldValor"];
             $descricao = $_POST["fldDescricao"];
@@ -22,32 +22,48 @@
 				$save = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
 
 				if ($save != 0) {
-					echo "<div align='center'>";
-					echo "<table width=759 border=0>";
-					echo "<tr>";
-					echo "<td bgcolor='#FF9900'>";
-					echo "div align='center'>";
-					echo "<font face=Verdana size=3><b>Confirmação de Atualização de Cadastro</b></font>";
-					echo "</div>";
-					echo "</td>";
-					echo "</tr>";
-					echo "<tr>";
-					echo "<td>&nbsp;</td>";
-					echo "</tr>";
-					echo "<tr>";
-					echo "<td>";
-					echo "<div align=çenter'>";
-					echo "<font face=Arial size=3><b>Dados do cliente atualizados com sucesso !</b></font>";
-					echo "</div>";
-					echo "</td>";
-					echo "</tr>";
-					echo "</table>";
-					echo "</div>";
-					echo "<p>&nbsp;</p>";
-					echo "<br/><br/>";
-					echo "Data: $data <br/>";
-					echo "Valor: $valor <br/>";
-					echo "Descrição: $descricao <br/>";
+					echo "<!DOCTYPE html";
+					echo "<html>";
+						echo "<head>";
+							echo "<title>Editar Gastos</title>";
+						echo "</head>";
+						echo "<body>";
+						
+						echo "<div align='center'>";
+							echo "<table width=759 border=0>";
+								echo "<tr>";
+									echo "<td bgcolor='#FF9900'>";
+										echo "<div align='center'>";
+											echo "<font face=Verdana size=3><b>Confirmação de Atualização de Cadastro</b></font>";
+										echo "</div>";
+									echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+									echo "<td>&nbsp;</td>";
+								echo "</tr>";
+								echo "<tr>";
+									echo "<td>";
+										echo "<div align=çenter'>";
+											echo "<font face=Arial size=3><b>Dados do cliente atualizados com sucesso !</b></font>";
+										echo "</div>";
+									echo "</td>";
+								echo "</tr>";
+							echo "</table>";
+						echo "</div>";
+						
+						echo "<p>&nbsp;</p>";
+						echo "<br/><br/>";
+						
+						echo "Data: $data <br/>";
+						echo "Valor: $valor <br/>";
+						echo "Descrição: $descricao <br/>";
+
+						echo '<p><a href="alt_gastos.html">Alterar outra despesa</a><br/>'; //Apenas um link para retornar para a consulta
+						echo '<a href="principal.html">Tela Principal</a></p>'; //Apenas um link para retornar para o site da empresa
+					
+					echo "</body>";
+					echo "</html>";
+
 				}
 				else {
 					echo "<h2><center>Erro na atualização do cadastro do cliente !</center></h2>";

@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Cadastrar Gastos</title>
-	<meta charset="utf-8"/>
-    </head>
-    <body>
-        <?php
-        	//validando se existe algum erro no código php
-            ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL); 
+<?php
+    //validando se existe algum erro no código php
+    ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL); 
             
-			//Importando obejto conexão
-			include_once('conectbd.php');
+	//Importando obejto conexão
+	include_once('conectbd.php');
 
-			$id = $_POST["fldID"];
+	$id = $_POST["fldID"];
             
-            //verifica se existe conexão com o banco de dados através da função acessarbd
-            acessarbd();
+    //verifica se existe conexão com o banco de dados através da função acessarbd
+    acessarbd();
 
-            //variável que armazena a conexão com o banco de dados
-			$bd_conected = true;
+    //variável que armazena a conexão com o banco de dados
+	$bd_conected = true;
 
 			if ($bd_conected) {
 				$string_sql = "SELECT * from gastos where cod_gasto = '$id';";
@@ -32,11 +25,11 @@
 					$valor = $row["valor"];
 					$descricao = $row["descricao"];		
 					
-					echo "<DOCTYPE html";
+					echo "<!DOCTYPE html";
 					echo "<html>";
-					echo "<head>";
-					echo "<title>Editar Gastos</title>";
-					echo "</head>";
+						echo "<head>";
+							echo "<title>Editar Gastos</title>";
+						echo "</head>";
 					echo "<body>";
 
 						echo '<form method="post" action="updt_gastos.php">';
@@ -72,8 +65,3 @@
 
 
         ?>
-
-
-
-    </body>
-</html>
