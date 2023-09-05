@@ -18,7 +18,7 @@
 
 
             if ($bd_conected) {
-				$string_sql = "update gastos SET data='$data', valor='$valor', descricao='$descricao' where id='$id'";
+				$string_sql = "update gastos SET data='$data', valor='$valor', descricao='$descricao' where cod_gasto='$id'";
 				$save = mysqli_query(acessarbd(), $string_sql); //Realiza a consulta
 
 				if ($save != 0) {
